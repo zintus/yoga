@@ -3162,7 +3162,7 @@ static float YGRoundValueToPixelGrid(const float value,
                                      const float pointScaleFactor,
                                      const bool forceCeil,
                                      const bool forceFloor) {
-  float scaledValue = value * pointScaleFactor;
+  float scaledValue = roundf(value * pointScaleFactor * 100) / 100;
   float fractial = fmodf(scaledValue, 1.0);
   if (YGFloatsEqual(fractial, 0)) {
     // Still remove fractial as fractial could be  extremely small.
